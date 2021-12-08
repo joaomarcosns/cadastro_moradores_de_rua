@@ -1,8 +1,10 @@
-package com.joaomarcos.cadastromoradoresderua;
+package com.joaomarcos.cadastromoradoresderua.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.joaomarcos.cadastromoradoresderua.R;
 
 public class CadastroActivity extends AppCompatActivity {
 

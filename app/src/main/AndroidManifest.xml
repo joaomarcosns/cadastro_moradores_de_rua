@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CadastroMoradoresDeRua">
         <activity
-            android:name=".AtualistarActivity"
+            android:name=".activity.AtualistarActivity"
             android:exported="false" />
         <activity
-            android:name=".ListActivity"
+            android:name=".activity.ListActivity"
             android:exported="false" />
         <activity
-            android:name=".CadastroActivity"
+            android:name=".activity.CadastroActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
