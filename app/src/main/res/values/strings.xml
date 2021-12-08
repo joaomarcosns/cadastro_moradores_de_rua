@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Cadastro Moradores de Rua</string>
+    <string name="cadastro_de">Cadastro de</string>
+    <string name="moradores_de_rua">moradores de rua</string>
+    <string name="get_started">Get Started</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="nome">Nome</string>
+    <string name="sexo">Sexo</string>
+    <string name="ra_a">Raça</string>
+    <string name="orienta_o_sexual">Orientação Sexual</string>
+    <string name="masculino">Masculino</string>
+    <string name="feminino">Feminino</string>
+    <string name="data_de_nascimento">Data de Nascimento</string>
+    <string name="moradores">Moradores</string>
+</resources>
