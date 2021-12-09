@@ -81,7 +81,7 @@ public class CadastroActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Cadastro realizado com sucesso", Toast.LENGTH_LONG).show();
                 Log.i("TESTE", documentReference.toString());
                 Intent intent = new Intent(CadastroActivity.this, ListActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
 
             }
