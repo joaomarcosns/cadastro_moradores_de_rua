@@ -81,7 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingHorizontal="30dp">
+                android:paddingStart="15dp">
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -96,7 +96,7 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="10dp"
                     android:shadowColor="@color/texthint"
                     android:text="@string/feminino"
                     android:textColor="@color/texthint"
