@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -77,7 +78,12 @@ public class CadastroActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
+                Toast.makeText(getApplicationContext(), "Cadastro realizado com sucesso", Toast.LENGTH_LONG).show();
                 Log.i("TESTE", documentReference.toString());
+                Intent intent = new Intent(CadastroActivity.this, ListActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
