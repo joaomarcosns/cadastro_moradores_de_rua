@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "264528892474",
+    "project_id": "cadastro-moradores-de-rua",
+    "storage_bucket": "cadastro-moradores-de-rua.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:264528892474:android:36bf777bdf2b2269f09b03",
+        "android_client_info": {
+          "package_name": "com.joaomarcos.cadastromoradoresderua"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "264528892474-4q1n1tncu2dojjqhrmuedgk825opnvnl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCg9ktiJz1g-T2n1_z9ofGRppsF5N9ctys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "264528892474-4q1n1tncu2dojjqhrmuedgk825opnvnl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

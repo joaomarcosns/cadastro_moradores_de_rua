@@ -84,6 +84,7 @@
                 android:paddingStart="15dp">
 
                 <RadioButton
+                    android:id="@+id/masculino"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:shadowColor="@color/texthint"
@@ -94,6 +95,7 @@
                     android:textColorLink="@color/texthint" />
 
                 <RadioButton
+                    android:id="@+id/femino"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
