@@ -27,6 +27,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.joaomarcos.cadastromoradoresderua.R;
 import com.joaomarcos.cadastromoradoresderua.model.MoradorDeRua;
 
+import java.util.UUID;
+
 public class CadastroActivity extends AppCompatActivity {
 
     private EditText editNome;
@@ -73,7 +75,8 @@ public class CadastroActivity extends AppCompatActivity {
 
     private void cadastrarBanco(String nome,String orientacaoSexual, String dataNascimento, String raca, String sexoFim) {
 
-        MoradorDeRua moradorDeRua = new MoradorDeRua(nome, orientacaoSexual, dataNascimento, raca, sexoFim);
+        String id = UUID.randomUUID().toString();
+        MoradorDeRua moradorDeRua = new MoradorDeRua(id, nome, orientacaoSexual, dataNascimento, raca, sexoFim);
         FirebaseFirestore.getInstance().collection("moradores_de_rua").add(moradorDeRua)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
