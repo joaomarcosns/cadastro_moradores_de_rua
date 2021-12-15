@@ -60,7 +60,7 @@ public class CadastroActivity extends AppCompatActivity {
                 int sexo = editSexo.getCheckedRadioButtonId();
 
                 if (sexo < 0 || nome.isEmpty() || orientacaoSexual.isEmpty() || dataNascimento.isEmpty() || raca.isEmpty()){
-                    Toast.makeText(getApplicationContext(), "Todos os camopos são OBRIGATORIOS", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Todos os campos são OBRIGATÓRIOS", Toast.LENGTH_LONG).show();
                 }else {
                     sexoEscolhido = findViewById(sexo);
                     String sexoFim = sexoEscolhido.getText().toString();

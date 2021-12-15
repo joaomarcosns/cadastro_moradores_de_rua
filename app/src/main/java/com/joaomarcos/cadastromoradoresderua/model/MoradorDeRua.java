@@ -17,6 +17,7 @@ public class MoradorDeRua {
         this.raca = raca;
         this.sexo = sexo;
     }
+    public MoradorDeRua(){}
 
     public String getId() {
         return id;
