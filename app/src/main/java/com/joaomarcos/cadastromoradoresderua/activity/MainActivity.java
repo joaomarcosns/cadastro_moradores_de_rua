@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
         getStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CadastroActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ListActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });

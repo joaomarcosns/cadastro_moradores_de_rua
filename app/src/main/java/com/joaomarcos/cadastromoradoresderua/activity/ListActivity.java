@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,8 +16,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
-import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -33,6 +34,7 @@ public class ListActivity extends AppCompatActivity {
     ArrayList<MoradorDeRua> moradorDeRuaArrayList;
     MyAdapter myAdapter;
     FirebaseFirestore db;
+    FloatingActionButton cadastrar;
 
 
     @Override
@@ -47,6 +49,16 @@ public class ListActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         moradorDeRuaArrayList = new ArrayList<MoradorDeRua>();
         myAdapter = new MyAdapter(ListActivity.this, moradorDeRuaArrayList);
+
+        cadastrar = findViewById(R.id.cadastrar);
+
+        cadastrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CadastroActivity.class);
+                startActivity(intent);
+            }
+        });
 
         recyclerView.setAdapter(myAdapter);
 
