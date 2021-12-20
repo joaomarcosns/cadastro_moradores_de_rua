@@ -67,48 +67,4 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         }
     }
 }
-public class DeletarActivity  {
-
-    private EditText editNome;
-    private EditText editOrientacaoSexual;
-    private EditText editDataNascimento;
-    private EditText editRaca;
-
-    private Button deletar;
-
-    private RadioGroup editSexo;
-    private RadioButton sexoEscolhido;
-    AlertDialog.Builder alerta_dialog;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_deletar);
-        deletar.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                alerta_dialog.setTitle("Atenção");
-                alerta_dialog.setMessage("Tem certeza que deseja excluir " + editNome + "?");
-                alerta_dialog.setCancelable(true);
-                alerta_dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        deletarMorador();
-
-                    }
-                });
-                alerta_dialog.setNegativeButton("Não", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-                alerta_dialog.show();
-            }
-        });
-    }
-    public void deletarMorador(){
-
-    }
-}
 
