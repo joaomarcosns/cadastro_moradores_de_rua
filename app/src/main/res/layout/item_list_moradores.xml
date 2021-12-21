@@ -58,14 +58,54 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_sex"
-                android:layout_marginStart="10dp"/>
+                android:layout_marginStart="5dp"/>
 
             <TextView
                 android:id="@+id/text_endereco"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="Rua dos bobos, Centro"/>
+                android:text="sexo"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_orientacao"
+                android:layout_marginStart="5dp"/>
+
+            <TextView
+                android:id="@+id/text_orientacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="ic_orientacao"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_raca"
+                android:layout_marginStart="5dp"/>
+
+            <TextView
+                android:id="@+id/text_raca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="raca"/>
         </LinearLayout>
 
         <LinearLayout

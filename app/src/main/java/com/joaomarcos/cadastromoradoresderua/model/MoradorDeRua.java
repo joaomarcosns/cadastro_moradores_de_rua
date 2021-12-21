@@ -1,15 +1,19 @@
 package com.joaomarcos.cadastromoradoresderua.model;
 
-public class MoradorDeRua {
+import com.google.firebase.firestore.Exclude;
 
-    private String id;
+import java.io.Serializable;
+
+public class MoradorDeRua implements Serializable {
+
+    @Exclude private String id;
     private String nome;
     private String orientacaoSexual;
     private String dataNascimento ;
     private String raca;
     private String sexo;
 
-    public MoradorDeRua(String id, String nome, String orientacaoSexual, String dataNascimento, String raca, String sexo) {
+    public MoradorDeRua(String nome, String orientacaoSexual, String dataNascimento, String raca, String sexo) {
         this.id = id;
         this.nome = nome;
         this.orientacaoSexual = orientacaoSexual;

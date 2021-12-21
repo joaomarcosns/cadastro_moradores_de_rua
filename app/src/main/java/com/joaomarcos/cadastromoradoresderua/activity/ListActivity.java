@@ -77,7 +77,13 @@ public class ListActivity extends AppCompatActivity {
                         }
                         for (DocumentChange dc : value.getDocumentChanges()){
                             if (dc.getType() == DocumentChange.Type.ADDED){
-                                moradorDeRuaArrayList.add(dc.getDocument().toObject(MoradorDeRua.class));
+
+                                MoradorDeRua m = dc.getDocument().toObject(MoradorDeRua.class);
+                                m.setId(dc.getDocument().getId());
+                                moradorDeRuaArrayList.add(m);
+
+//                                moradorDeRuaArrayList.add(dc.getDocument().toObject(MoradorDeRua.class));
+
                             }
                             myAdapter.notifyDataSetChanged();
                         }

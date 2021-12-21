@@ -1,7 +1,6 @@
 package com.joaomarcos.cadastromoradoresderua.activity;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,22 +13,13 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.SuccessContinuation;
-import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.Tasks;
-import com.google.android.material.snackbar.BaseTransientBottomBar;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.joaomarcos.cadastromoradoresderua.R;
 import com.joaomarcos.cadastromoradoresderua.model.MoradorDeRua;
 
-import java.util.UUID;
-
-public class CadastroActivity extends AppCompatActivity {
+public class UpdatedActivity extends AppCompatActivity {
 
     private EditText editNome;
     private EditText editOrientacaoSexual;
@@ -41,15 +31,31 @@ public class CadastroActivity extends AppCompatActivity {
     private RadioGroup editSexo;
     private RadioButton sexoEscolhido;
 
+    private MoradorDeRua moradorDeRua;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastro);
+        setContentView(R.layout.activity_updated);
         iniciarComponente();
-        validarCampos();
+        recuperDados();
     }
 
-    private void validarCampos() {
+    private void recuperDados() {
+        moradorDeRua = (MoradorDeRua) getIntent().getSerializableExtra("moradorDeRua");
+        editNome.setText(moradorDeRua.getNome());
+        editRaca.setText(moradorDeRua.getRaca());
+        if (moradorDeRua.getSexo().equals("Masculino")) {
+            ((RadioButton)editSexo.getChildAt(0)).setChecked(true);
+        }else {
+            ((RadioButton)editSexo.getChildAt(1)).setChecked(true);
+        }
+        editOrientacaoSexual.setText(moradorDeRua.getOrientacaoSexual());
+        editDataNascimento.setText(moradorDeRua.getDataNascimento());
+        atualizar();
+    }
+
+    private void atualizar() {
         cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,33 +70,31 @@ public class CadastroActivity extends AppCompatActivity {
                 }else {
                     sexoEscolhido = findViewById(sexo);
                     String sexoFim = sexoEscolhido.getText().toString();
+                    MoradorDeRua mDR = new MoradorDeRua();
+                    mDR.setNome(nome);
+                    mDR.setSexo(sexoFim);
+                    mDR.setOrientacaoSexual(orientacaoSexual);
+                    mDR.setRaca(raca);
+                    mDR.setDataNascimento(dataNascimento);
 
-                    cadastrarBanco(nome, orientacaoSexual, dataNascimento, raca, sexoFim);
+                    FirebaseFirestore.getInstance().collection("moradores_de_rua")
+                            .document(moradorDeRua.getId())
+                            .set(mDR)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Intent intent = new Intent(getApplicationContext(), ListActivity.class);
+                                    Toast.makeText(getApplicationContext(), "Atualização realizado com sucesso", Toast.LENGTH_LONG).show();
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    startActivity(intent);
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.i("Error", e.getMessage());
+                        }
+                    });
                 }
-
-
-            }
-        });
-    }
-
-    private void cadastrarBanco(String nome,String orientacaoSexual, String dataNascimento, String raca, String sexoFim) {
-
-        MoradorDeRua moradorDeRua = new MoradorDeRua(nome, orientacaoSexual, dataNascimento, raca, sexoFim);
-        FirebaseFirestore.getInstance().collection("moradores_de_rua").add(moradorDeRua)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-            @Override
-            public void onSuccess(DocumentReference documentReference) {
-                Toast.makeText(getApplicationContext(), "Cadastro realizado com sucesso", Toast.LENGTH_LONG).show();
-                Log.i("TESTE", documentReference.toString());
-                Intent intent = new Intent(CadastroActivity.this, ListActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.i("TESTE", e.toString());
             }
         });
     }

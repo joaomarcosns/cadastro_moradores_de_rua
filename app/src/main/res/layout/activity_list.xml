@@ -41,7 +41,7 @@
         android:id="@+id/id_list_moradores"
         android:layout_width="match_parent"
         android:layout_height="556dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintBottom_toTopOf="@+id/cadastrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

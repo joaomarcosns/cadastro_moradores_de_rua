@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CadastroMoradoresDeRua">
         <activity
+            android:name=".activity.UpdatedActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.AtualistarActivity"
             android:exported="false" />
         <activity
