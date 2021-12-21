@@ -15,8 +15,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
@@ -61,7 +64,6 @@ public class ListActivity extends AppCompatActivity {
         });
 
         recyclerView.setAdapter(myAdapter);
-
         EventChangeListener();
     }
 
@@ -90,4 +92,5 @@ public class ListActivity extends AppCompatActivity {
                     }
                 });
     }
+
 }
